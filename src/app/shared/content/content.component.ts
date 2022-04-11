@@ -14,7 +14,10 @@ export class ContentComponent implements OnInit {
   serviceData!: string;
 
   ngOnInit(): void {
-    this.serviceData = this.contentService.getAdminContent();
+    this.contentService.getAdminContent().subscribe(response => {
+      this.serviceData = response;
+    });
+
   }
 
 }

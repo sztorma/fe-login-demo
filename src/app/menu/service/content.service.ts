@@ -1,4 +1,5 @@
 import { Injectable } from '@angular/core';
+import { observable, Observable, of } from 'rxjs';
 import { IContentService } from './icontent-service';
 
 @Injectable({
@@ -7,9 +8,8 @@ import { IContentService } from './icontent-service';
 export class ContentService implements IContentService {
 
   constructor() { }
-
-  getAdminContent(): string {
-    return 'admin content';
+  getAdminContent(): Observable<string> {
+    throw new Error('Method not implemented.');
   }
 
 }
