@@ -60,6 +60,14 @@
               "extractLicenses": false,
               "sourceMap": true,
               "namedChunks": true
+            },
+            "mock": {
+              "fileReplacements": [
+                {
+                  "replace": "src/environments/environment.ts",
+                  "with": "src/environments/environment.mock.ts"
+                }
+              ]
             }
           },
           "defaultConfiguration": "production"
@@ -72,6 +80,9 @@
             },
             "development": {
               "browserTarget": "fe-login-demo:build:development"
+            },
+            "mock": {
+              "browserTarget": "fe-login-demo:build:mock"
             }
           },
           "defaultConfiguration": "development"
