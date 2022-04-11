@@ -1,4 +1,5 @@
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, Inject, Input, OnInit } from '@angular/core';
+import { IContentService } from 'src/app/menu/service/icontent-service';
 
 @Component({
   selector: 'app-content',
@@ -7,11 +8,13 @@ import { Component, Input, OnInit } from '@angular/core';
 })
 export class ContentComponent implements OnInit {
 
-  constructor() { }
+  constructor(@Inject('IContentService') private contentService: IContentService) { }
 
   @Input() text!: string;
+  serviceData!: string;
 
   ngOnInit(): void {
+    this.serviceData = this.contentService.getAdminContent();
   }
 
 }

@@ -9,6 +9,7 @@ import { AdminContentComponent } from './menu/admin-content/admin-content.compon
 import { ModeratorContentComponent } from './menu/moderator-content/moderator-content.component';
 import { UserContentComponent } from './menu/user-content/user-content.component';
 import { MenuComponent } from './menu/menu.component';
+import { environment } from 'src/environments/environment';
 
 @NgModule({
   declarations: [
@@ -24,7 +25,12 @@ import { MenuComponent } from './menu/menu.component';
     BrowserModule,
     AppRoutingModule
   ],
-  providers: [],
+  providers: [
+    {
+      provide: 'IContentService',
+      useClass: environment.contentService
+    }
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
