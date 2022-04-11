@@ -7,7 +7,7 @@ import { Component, OnInit } from '@angular/core';
 })
 export class AdminContentComponent implements OnInit {
 
-  adminText: string = 'Content for admin';
+  path: string = '/api/content/admin';
 
   constructor() { }
 

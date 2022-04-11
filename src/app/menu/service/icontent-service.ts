@@ -1,5 +1,5 @@
 import { Observable } from "rxjs";
 
 export interface IContentService {
-    getAdminContent(): Observable<string>;
+    getAdminContent(path: string): Observable<string>;
 }

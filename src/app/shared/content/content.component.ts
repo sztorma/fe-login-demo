@@ -10,12 +10,12 @@ export class ContentComponent implements OnInit {
 
   constructor(@Inject('IContentService') private contentService: IContentService) { }
 
-  @Input() text!: string;
-  serviceData!: string;
+  @Input() path!: string;
+  content!: string;
 
   ngOnInit(): void {
-    this.contentService.getAdminContent().subscribe(response => {
-      this.serviceData = response;
+    this.contentService.getAdminContent(this.path).subscribe(response => {
+      this.content = response;
     });
 
   }

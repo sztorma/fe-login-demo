@@ -9,8 +9,8 @@ export class MockContentService implements IContentService {
 
   constructor() { }
 
-  getAdminContent(): Observable<string> {
-    return of('mock admin content');
+  getAdminContent(path: string): Observable<string> {
+    return of('mock admin content from path: ' + path);
   }
 
 }
