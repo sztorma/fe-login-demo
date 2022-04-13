@@ -20,15 +20,15 @@
 <table class="table table-bordered">
     <tr>
         <td>username</td>
-        <td>Charlie</td>
+        <td>{{user.name}}</td>
     </tr>
     <tr>
         <td>roles</td>
-        <td>admin,moderator</td>
+        <td>{{user.roles}}</td>
     </tr>
     <tr>
         <td>last login</td>
-        <td>2022.04.22</td>
+        <td>{{user.lastLogin}}</td>
     </tr>
 </table>
 <router-outlet></router-outlet>

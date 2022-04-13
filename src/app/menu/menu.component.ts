@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
+import { User } from '../shared/model/user';
 
 @Component({
   selector: 'app-menu',
@@ -8,12 +9,17 @@ import { Router } from '@angular/router';
 })
 export class MenuComponent implements OnInit {
 
+  user!: User;
+
   constructor(private router: Router) { }
 
   ngOnInit(): void {
+    var jsonUser: any = localStorage.getItem('currentUser');
+    this.user = JSON.parse(jsonUser);
   }
 
   logoutRedirect() {
+    localStorage.removeItem('currentUser');
     this.router.navigate(['/logout']);
   }
 }
