@@ -11,6 +11,7 @@ import { UserContentComponent } from './menu/user-content/user-content.component
 import { MenuComponent } from './menu/menu.component';
 import { environment } from 'src/environments/environment';
 import { LogoutComponent } from './logout/logout.component';
+import { ReactiveFormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [
@@ -25,7 +26,8 @@ import { LogoutComponent } from './logout/logout.component';
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule,
+    ReactiveFormsModule
   ],
   providers: [
     {
