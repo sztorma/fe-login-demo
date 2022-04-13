@@ -10,6 +10,7 @@ import { ModeratorContentComponent } from './menu/moderator-content/moderator-co
 import { UserContentComponent } from './menu/user-content/user-content.component';
 import { MenuComponent } from './menu/menu.component';
 import { environment } from 'src/environments/environment';
+import { LogoutComponent } from './logout/logout.component';
 
 @NgModule({
   declarations: [
@@ -19,7 +20,8 @@ import { environment } from 'src/environments/environment';
     AdminContentComponent,
     ModeratorContentComponent,
     UserContentComponent,
-    MenuComponent
+    MenuComponent,
+    LogoutComponent
   ],
   imports: [
     BrowserModule,
