@@ -19,7 +19,6 @@ export class MenuComponent implements OnInit {
   }
 
   logoutRedirect() {
-    localStorage.removeItem('currentUser');
     this.router.navigate(['/logout']);
   }
 }
