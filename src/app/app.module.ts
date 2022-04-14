@@ -33,6 +33,10 @@ import { ReactiveFormsModule } from '@angular/forms';
     {
       provide: 'IContentService',
       useClass: environment.contentService
+    },
+    {
+      provide: 'IAuthService',
+      useClass: environment.authService
     }
   ],
   bootstrap: [AppComponent]
