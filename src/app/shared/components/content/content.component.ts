@@ -1,5 +1,5 @@
 import { Component, Inject, Input, OnInit } from '@angular/core';
-import { IContentService } from 'src/app/menu/service/content/icontent-service';
+import { IContentService } from 'src/app/menu/service/content/icontent.service';
 
 @Component({
   selector: 'app-content',

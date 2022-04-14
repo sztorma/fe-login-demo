@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
-import { User } from '../shared/model/user';
+import { User } from '../shared/model/user.model';
 
 @Component({
   selector: 'app-menu',

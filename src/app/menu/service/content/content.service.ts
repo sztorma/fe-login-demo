@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
-import { IContentService } from './icontent-service';
+import { IContentService } from './icontent.service';
 
 @Injectable({
   providedIn: 'root'
