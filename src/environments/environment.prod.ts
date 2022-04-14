@@ -1,4 +1,4 @@
-import { ContentService } from "src/app/menu/service/content.service";
+import { ContentService } from "src/app/menu/service/content/content.service";
 
 export const environment = {
   production: true,

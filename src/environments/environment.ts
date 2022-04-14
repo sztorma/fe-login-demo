@@ -1,7 +1,7 @@
 // This file can be replaced during build by using the `fileReplacements` array.
 // `ng build` replaces `environment.ts` with `environment.prod.ts`.
 // The list of file replacements can be found in `angular.json`.
-import { ContentService } from "src/app/menu/service/content.service";
+import { ContentService } from "src/app/menu/service/content/content.service";
 
 export const environment = {
   production: false,

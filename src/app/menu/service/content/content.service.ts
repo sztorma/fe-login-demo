@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { observable, Observable, of } from 'rxjs';
+import { Observable } from 'rxjs';
 import { IContentService } from './icontent-service';
 
 @Injectable({
