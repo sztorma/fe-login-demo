@@ -12,7 +12,7 @@ import { MenuComponent } from './menu/menu.component';
 import { environment } from 'src/environments/environment';
 import { LogoutComponent } from './logout/logout.component';
 import { ReactiveFormsModule } from '@angular/forms';
-import { HTTP_INTERCEPTORS } from '@angular/common/http';
+import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { JwtInterceptor } from './shared/interceptor/jwt.interceptor';
 
 @NgModule({
@@ -29,7 +29,8 @@ import { JwtInterceptor } from './shared/interceptor/jwt.interceptor';
   imports: [
     BrowserModule,
     AppRoutingModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    HttpClientModule
   ],
   providers: [
     {
