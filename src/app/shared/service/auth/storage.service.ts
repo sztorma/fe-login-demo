@@ -20,8 +20,13 @@ export class StorageService {
     localStorage.removeItem(key);
   }
 
-  getCurrentUser() {
+  getCurrentUser(): User {
     var jsonUser: any = localStorage.getItem('currentUser');
     return JSON.parse(jsonUser);
+  }
+
+  getToken(): string {
+    let token: any = localStorage.getItem('token');
+    return JSON.parse(token);
   }
 }

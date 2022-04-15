@@ -12,6 +12,8 @@ import { MenuComponent } from './menu/menu.component';
 import { environment } from 'src/environments/environment';
 import { LogoutComponent } from './logout/logout.component';
 import { ReactiveFormsModule } from '@angular/forms';
+import { HTTP_INTERCEPTORS } from '@angular/common/http';
+import { JwtInterceptor } from './shared/interceptor/jwt.interceptor';
 
 @NgModule({
   declarations: [
@@ -37,6 +39,11 @@ import { ReactiveFormsModule } from '@angular/forms';
     {
       provide: 'IAuthService',
       useClass: environment.authService
+    },
+    {
+      provide: HTTP_INTERCEPTORS,
+      useClass: JwtInterceptor,
+      multi: true
     }
   ],
   bootstrap: [AppComponent]
