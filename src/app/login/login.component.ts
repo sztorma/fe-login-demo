@@ -28,7 +28,7 @@ export class LoginComponent implements OnInit {
     this.authService.authenticate(this.loginForm.get('username')?.value, this.loginForm.get('password')?.value).subscribe(authentication => {
       let user: User = authentication.authenticatedUser;
       this.storageService.storeUser(user);
-      this.storageService.storeToken(authentication.token);
+      this.storageService.storeToken(authentication.jwtToken);
       this.router.navigate(['/menu']);
     });
   }

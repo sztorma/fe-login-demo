@@ -1,6 +1,6 @@
 import { User } from "./user.model";
 
 export class Authentication {
-    token!: string;
+    jwtToken!: string;
     authenticatedUser!: User;
 }

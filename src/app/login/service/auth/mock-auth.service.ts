@@ -18,7 +18,7 @@ export class MockAuthService implements IAuthService {
     user.roles = ['MODERATOR', 'USER'];
     user.lastLogin = '2022.04.21';
     let auth: Authentication = new Authentication;
-    auth.token = 'mock-token';
+    auth.jwtToken = 'mock-token';
     auth.authenticatedUser = user;
     return of(auth);
   }
