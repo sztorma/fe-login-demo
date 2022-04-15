@@ -7,6 +7,7 @@ import { ContentService } from "src/app/menu/service/content/content.service";
 
 export const environment = {
   production: false,
+  apiUrl: 'http://localhost:8080',
   contentService: ContentService,
   authService: AuthService
 };

@@ -3,6 +3,7 @@ import { MockContentService } from "src/app/menu/service/content/mock-content.se
 
 export const environment = {
     production: false,
+    apiUrl: 'http://localhost:8080',
     contentService: MockContentService,
     authService: MockAuthService
 };
