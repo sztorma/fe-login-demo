@@ -42,6 +42,10 @@ import { JwtInterceptor } from './shared/interceptor/jwt.interceptor';
       useClass: environment.authService
     },
     {
+      provide: 'IUserService',
+      useClass: environment.userService
+    },
+    {
       provide: HTTP_INTERCEPTORS,
       useClass: JwtInterceptor,
       multi: true
