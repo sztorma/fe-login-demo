@@ -15,9 +15,9 @@ export class JwtInterceptor implements HttpInterceptor {
 
   intercept(request: HttpRequest<unknown>, next: HttpHandler): Observable<HttpEvent<unknown>> {
     let newRequest = request;
-    const token: string = this.storageService.getToken();
-    if (token != null) {
-      newRequest = request.clone({ headers: request.headers.set('Authorization', 'Bearer ' + token) })
+    const jwt: string = this.storageService.getJwt();
+    if (jwt != null) {
+      newRequest = request.clone({ headers: request.headers.set('Authorization', 'Bearer ' + jwt) })
     }
     return next.handle(newRequest);
   }

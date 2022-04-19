@@ -12,8 +12,8 @@ export class StorageService {
     localStorage.setItem('currentUser', JSON.stringify(user));
   }
 
-  storeToken(token: string) {
-    localStorage.setItem('token', JSON.stringify(token));
+  storeToken(jwt: string) {
+    localStorage.setItem('jwt', JSON.stringify(jwt));
   }
 
   remove(key: string) {
@@ -25,8 +25,8 @@ export class StorageService {
     return JSON.parse(jsonUser);
   }
 
-  getToken(): string {
-    let token: any = localStorage.getItem('token');
-    return JSON.parse(token);
+  getJwt(): string {
+    let jwt: any = localStorage.getItem('jwt');
+    return JSON.parse(jwt);
   }
 }
