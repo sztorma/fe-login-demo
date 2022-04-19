@@ -1,7 +1,8 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Inject, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { User } from '../shared/model/user.model';
 import { StorageService } from '../shared/service/auth/storage.service';
+import { IUserService } from './service/user/iuser.service';
 
 @Component({
   selector: 'app-menu',
@@ -10,12 +11,19 @@ import { StorageService } from '../shared/service/auth/storage.service';
 })
 export class MenuComponent implements OnInit {
 
-  user!: User;
+  user: User = new User;
 
-  constructor(private router: Router, private storageService: StorageService) { }
+  constructor(private router: Router, private storageService: StorageService, @Inject('IUserService') private userService: IUserService) { }
 
   ngOnInit(): void {
-    this.user = this.storageService.getCurrentUser();
+    this.getUser();
+  }
+
+  private getUser(): void {
+    this.userService.getUserFromJwt().subscribe(user => {
+      this.storageService.storeUser(user);
+      this.user = this.storageService.getCurrentUser();
+    });
   }
 
   logoutRedirect() {
