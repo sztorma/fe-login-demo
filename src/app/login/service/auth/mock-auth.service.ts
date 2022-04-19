@@ -14,12 +14,11 @@ export class MockAuthService implements IAuthService {
   authenticate(username: string, password: string): Observable<Authentication> {
     let user: User = new User;
     user.id = 3;
-    user.name = username;
+    user.username = username;
     user.roles = ['MODERATOR', 'USER'];
     user.lastLogin = '2022.04.21';
     let auth: Authentication = new Authentication;
     auth.jwt = 'mock-token';
-    auth.authenticatedUser = user;
     return of(auth);
   }
 }
