@@ -4,14 +4,8 @@
     </a>
     <div class="collapse navbar-collapse">
         <ul class="navbar-nav mr-auto">
-            <li class="nav-item">
-                <a class="nav-link" routerLink="/menu/admin">admin</a>
-            </li>
-            <li class="nav-item">
-                <a class="nav-link" routerLink="/menu/moderator">moderator</a>
-            </li>
-            <li class="nav-item">
-                <a class="nav-link" routerLink="/menu/user">user</a>
+            <li class="nav-item" *ngFor="let route of routes">
+                <a class="nav-link" routerLink="{{route.link}}">{{route.name}}</a>
             </li>
         </ul>
     </div>
