@@ -30,7 +30,7 @@ export class MockRouteService implements IRouteService {
       name: 'user',
       link: '/menu/user'
     }
-  ]
+  ];
 
   constructor() { }
   getRoutesForComponent(component: string): Observable<Route[]> {
