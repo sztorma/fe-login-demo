@@ -13,7 +13,7 @@ export class LogoutComponent implements OnInit {
 
   ngOnInit(): void {
     this.storageService.remove('currentUser');
-    this.storageService.remove('token');
+    this.storageService.remove('jwt');
     this.router.navigate(['/']);
   }
 

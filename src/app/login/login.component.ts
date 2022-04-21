@@ -16,14 +16,17 @@ export class LoginComponent implements OnInit {
   loginForm: FormGroup;
   siteKey: string;
   captchaRequired: boolean;
-  isLoading!: boolean;
+  captchaToken!: string;
+  isLoading: boolean;
   badCredentials!: boolean;
 
 
   constructor(private router: Router, @Inject('IAuthService') private authService: IAuthService, private storageService: StorageService) {
     this.captchaRequired = false;
     this.badCredentials = false;
+    this.isLoading = false;
     this.siteKey = '6Lf_aIofAAAAABvw-u5SHKGttb7O57PuCdavMpBu';
+
     this.loginForm = new FormGroup({
       username: new FormControl('', [Validators.required, Validators.minLength(4)]),
       password: new FormControl('', Validators.required),
@@ -31,7 +34,6 @@ export class LoginComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    this.isLoading = false;
   }
 
   submitLoginForm() {
@@ -39,10 +41,11 @@ export class LoginComponent implements OnInit {
     this.authService.authenticate(this.loginForm.get('username')?.value, this.loginForm.get('password')?.value).subscribe({
       next: (authentication) => {
         this.badCredentials = false;
-        this.storageService.storeToken(authentication.jwt);
-        if (authentication.captchaRequired) {
+        if (authentication.jwt === null || authentication.jwt === '') {
           this.captchaRequired = true;
+          this.captchaToken = authentication.captchaToken;
         } else {
+          this.storageService.storeToken(authentication.jwt);
           this.router.navigate(['/menu']);
         }
       },
@@ -64,9 +67,13 @@ export class LoginComponent implements OnInit {
   }
 
   resolved(captchaResponse: string) {
-    // TODO api call to reset loginAttempt
-    this.captchaRequired = false;
-    this.router.navigate(['/menu']);
+    this.authService.captchaAuthenticate(this.captchaToken).subscribe({
+      next: (authentication) => {
+        this.storageService.storeToken(authentication.jwt);
+        this.router.navigate(['/menu']);
+      }
+    });
+
   }
 
 }

@@ -18,8 +18,15 @@ export class MockAuthService implements IAuthService {
     let auth: Authentication = new Authentication;
     auth.jwt = 'mock-token';
     if (username === 'captcha') {
-      auth.captchaRequired = true;
+      auth.jwt = '';
+      auth.captchaToken = 'captcha-mock-token'
     }
+    return of(auth);
+  }
+
+  captchaAuthenticate(captchaToken: string): Observable<Authentication> {
+    let auth: Authentication = new Authentication;
+    auth.jwt = 'mock-token';
     return of(auth);
   }
 }
