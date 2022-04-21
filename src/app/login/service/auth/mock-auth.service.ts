@@ -1,7 +1,7 @@
+import { HttpErrorResponse } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { Observable, of } from 'rxjs';
+import { Observable, of, throwError } from 'rxjs';
 import { Authentication } from 'src/app/shared/model/authentication.model';
-import { User } from 'src/app/shared/model/user.model';
 import { IAuthService } from './iauth.service';
 
 @Injectable({
@@ -12,6 +12,9 @@ export class MockAuthService implements IAuthService {
   constructor() { }
 
   authenticate(username: string, password: string): Observable<Authentication> {
+    if (username === 'error') {
+      return throwError(() => new HttpErrorResponse({ status: 401 }))
+    }
     let auth: Authentication = new Authentication;
     auth.jwt = 'mock-token';
     if (username === 'captcha') {
