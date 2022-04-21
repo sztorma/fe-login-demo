@@ -12,13 +12,11 @@ export class MockAuthService implements IAuthService {
   constructor() { }
 
   authenticate(username: string, password: string): Observable<Authentication> {
-    let user: User = new User;
-    user.id = 3;
-    user.username = username;
-    user.roles = ['MODERATOR', 'USER'];
-    user.lastLogin = '2022.04.21';
     let auth: Authentication = new Authentication;
     auth.jwt = 'mock-token';
+    if (username === 'captcha') {
+      auth.captchaRequired = true;
+    }
     return of(auth);
   }
 }

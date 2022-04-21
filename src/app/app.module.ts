@@ -10,10 +10,10 @@ import { ModeratorContentComponent } from './menu/moderator-content/moderator-co
 import { UserContentComponent } from './menu/user-content/user-content.component';
 import { MenuComponent } from './menu/menu.component';
 import { environment } from 'src/environments/environment';
-import { LogoutComponent } from './logout/logout.component';
 import { ReactiveFormsModule } from '@angular/forms';
 import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { JwtInterceptor } from './shared/interceptor/jwt.interceptor';
+import { RecaptchaModule } from "ng-recaptcha";
 
 @NgModule({
   declarations: [
@@ -23,14 +23,14 @@ import { JwtInterceptor } from './shared/interceptor/jwt.interceptor';
     AdminContentComponent,
     ModeratorContentComponent,
     UserContentComponent,
-    MenuComponent,
-    LogoutComponent
+    MenuComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     ReactiveFormsModule,
-    HttpClientModule
+    HttpClientModule,
+    RecaptchaModule
   ],
   providers: [
     {
