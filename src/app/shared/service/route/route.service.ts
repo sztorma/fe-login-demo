@@ -16,10 +16,10 @@ export class RouteService implements IRouteService {
 
   apiUrl = environment.apiUrl;
 
-  constructor(private Http: HttpClient) { }
+  constructor(private http: HttpClient) { }
 
   getRoutesForComponent(component: string): Observable<Route[]> {
-    return this.Http.get<Route[]>(this.apiUrl + '/api/route/get/for-current-roles/for-component/' + component, httpOptions);
+    return this.http.get<Route[]>(this.apiUrl + '/api/route/get/for-current-roles/for-component/' + component, httpOptions);
   }
 
 }
