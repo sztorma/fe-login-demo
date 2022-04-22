@@ -7,6 +7,8 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ModeratorContentComponent implements OnInit {
 
+  path: string = '/api/content/moderator';
+
   constructor() { }
 
   ngOnInit(): void {
