@@ -14,8 +14,8 @@ export class ContentComponent implements OnInit {
   content!: string;
 
   ngOnInit(): void {
-    this.contentService.getAdminContent(this.path).subscribe(response => {
-      this.content = response;
+    this.contentService.getContent(this.path).subscribe(response => {
+      this.content = response.response;
     });
 
   }

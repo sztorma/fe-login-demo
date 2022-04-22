@@ -1,5 +1,6 @@
 import { Observable } from "rxjs";
+import { Content } from "src/app/shared/model/content.model";
 
 export interface IContentService {
-    getAdminContent(path: string): Observable<string>;
+    getContent(path: string): Observable<Content>;
 }
