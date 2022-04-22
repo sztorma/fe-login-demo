@@ -21,4 +21,9 @@ export class AuthService implements IAuthService {
   authenticate(username: string, password: string): Observable<Authentication> {
     return this.http.post<Authentication>(this.apiUrl + '/api/authenticate', { username: username, password: password }, httpOptions);
   }
+
+  captchaAuthenticate(captchaToken: string): Observable<Authentication> {
+    return this.http.post<Authentication>(this.apiUrl + '/api/authenticate/captcha', { captchaToken: captchaToken }, httpOptions);
+  }
+
 }
