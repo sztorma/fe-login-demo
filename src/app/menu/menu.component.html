@@ -1,28 +1,32 @@
-<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
-    <a class="navbar-brand" routerLink="/menu">
-        Menu
-    </a>
-    <div class="collapse navbar-collapse">
-        <ul class="navbar-nav mr-auto">
-            <li class="nav-item" *ngFor="let route of routes">
-                <a class="nav-link" routerLink="{{route.link}}">{{route.name}}</a>
-            </li>
-        </ul>
+<div class="container-fluid">
+    <nav class="navbar navbar-expand-sm navbar-dark bg-dark p-2">
+        <a class="navbar-brand" routerLink="/menu">
+            Menu
+        </a>
+        <div class="collapse navbar-collapse">
+            <ul class="navbar-nav mr-auto">
+                <li class="nav-item" *ngFor="let route of routes">
+                    <a class="nav-link" routerLink="{{route.link}}">{{route.name}}</a>
+                </li>
+            </ul>
+        </div>
+        <button type="button" class="btn btn-secondary" (click)="logoutRedirect()">Log out</button>
+    </nav>
+    <div class="d-flex my-2">
+        <table class="table table-striped w-25 bg-info">
+            <tr>
+                <td>username</td>
+                <td>{{user.username}}</td>
+            </tr>
+            <tr>
+                <td>roles</td>
+                <td>{{user.roles}}</td>
+            </tr>
+            <tr>
+                <td>last login</td>
+                <td>{{user.lastLogin}}</td>
+            </tr>
+        </table>
+        <router-outlet></router-outlet>
     </div>
-</nav>
-<button type="button" class="btn btn-secondary" (click)="logoutRedirect()">Log out</button>
-<table class="table table-bordered">
-    <tr>
-        <td>username</td>
-        <td>{{user.username}}</td>
-    </tr>
-    <tr>
-        <td>roles</td>
-        <td>{{user.roles}}</td>
-    </tr>
-    <tr>
-        <td>last login</td>
-        <td>{{user.lastLogin}}</td>
-    </tr>
-</table>
-<router-outlet></router-outlet>
+</div>
