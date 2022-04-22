@@ -7,6 +7,8 @@ import { Component, OnInit } from '@angular/core';
 })
 export class UserContentComponent implements OnInit {
 
+  path: string = '/api/content/user';
+
   constructor() { }
 
   ngOnInit(): void {
